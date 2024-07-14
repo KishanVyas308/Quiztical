@@ -57,46 +57,45 @@ To get a local copy up and running follow these simple steps:
    git clone https://github.com/Kishan-Vyas/Quiztical
 
 2. Install NPM packages:
-```sh
-Copy code
-cd quiztical
-npm install
-```
+   ```sh
+   cd quiztical
+   npm install
+   ```
 3. Create a .env file in the root directory and add your Firebase configuration:
+   ```sh
+   REACT_APP_FIREBASE_API_KEY=your_api_key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
+   REACT_APP_FIREBASE_PROJECT_ID=your_project_id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+   REACT_APP_FIREBASE_APP_ID=your_app_id
+   ```
+4. Start the development server:
 
-plaintext
-Copy code
-REACT_APP_FIREBASE_API_KEY=your_api_key
-REACT_APP_FIREBASE_AUTH_DOMAIN=your_auth_domain
-REACT_APP_FIREBASE_PROJECT_ID=your_project_id
-REACT_APP_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-REACT_APP_FIREBASE_APP_ID=your_app_id
-Start the development server:
-
-sh
-Copy code
+```sh
 npm start
-Usage
-Create an Account: Sign up using your Google account or email and password.
-Create a Quiz: Navigate to the "Create New Quiz" page and start crafting your quiz.
-Host a Quiz: Share the invitation code with participants and start the quiz in real-time.
-Participate in a Quiz: Join live quizzes using the invitation code and compete for the top spot on the leaderboard.
-View Results: Check your performance and review quiz summaries anytime.
-Contributing
+```
+
+## Usage
+1. Create an Account: Sign up using your Google account or email and password.
+2. Create a Quiz: Navigate to the "Create New Quiz" page and start crafting your quiz.
+3. Host a Quiz: Share the invitation code with participants and start the quiz in real-time.
+4. Participate in a Quiz: Join live quizzes using the invitation code and compete for the top spot on the leaderboard.
+5. View Results: Check your performance and review quiz summaries anytime.
+   
+## Contributing
 Contributions are what make the open-source community such an amazing place to be learn, inspire, and create. Any contributions you make are greatly appreciated.
 
-Fork the Project
-Create your Feature Branch (git checkout -b feature/AmazingFeature)
-Commit your Changes (git commit -m 'Add some AmazingFeature')
-Push to the Branch (git push origin feature/AmazingFeature)
-Open a Pull Request
-License
+1. Fork the Project
+2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
+3. Commit your Changes (git commit -m 'Add some AmazingFeature')
+4. Push to the Branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
+## License
 Distributed under the MIT License. See LICENSE for more information.
 
-Contact
-Your Name - @your_twitter_handle - your.email@example.com
+## Contact
+Kishan Vyas - kishanvyas308@gmail.com 
 
-Project Link: https://github.com/your-username/quiztical
 
 
