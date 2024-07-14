@@ -118,10 +118,10 @@ const JoinGamePage: React.FC = () => {
           const fetchedQuiz = await fetchCurrentActiveQuizeQuestions(quizId);
           setQuiz(fetchedQuiz);
           setQuizId(quizId);
-          console.log("quiz", fetchedQuiz);
+   
         }
       } catch (error) {
-        console.error("Error fetching quiz:", error);
+    
       }
     };
 
@@ -136,7 +136,7 @@ const JoinGamePage: React.FC = () => {
           fetchQuizData(data.quizId);
         }
       }
-      console.log("i am working.....");
+    
     });
 
     return () => unsubscribe();
@@ -153,8 +153,7 @@ const JoinGamePage: React.FC = () => {
           participantsData.push(doc.data() as any);
         });
         if (!isEqual(participants, participantsData)) {
-          console.log("previous participants", participants);
-          console.log("participants updated...", participantsData);
+          
 
           setParticipants(participantsData);
         }
@@ -204,11 +203,7 @@ const JoinGamePage: React.FC = () => {
     if (gameStatus === GameStatus.started && quiz) {
       const currentQuestion = quiz.quizzes[currentQuizNumber];
       setTimer(currentQuestion.duration);
-      console.log(
-        "game in question mode........",
-        currentQuizNumber,
-        currentQuestion
-      );
+      
 
       const timerInterval = setInterval(() => {
         setTimer((prev) => {
@@ -231,16 +226,12 @@ const JoinGamePage: React.FC = () => {
       setSubmissionTime(null);
 
       setTimeout(async () => {
-        console.log("fetching participents");
+        
         setParticipants(await fetchAllParticipantFromCurretQuiz(activeQuizId!));
-        console.log("updated participents :", participants);
+       
       }, 1000);
 
-      console.log(
-        "game in leader board........",
-        currentQuizNumber,
-        currentQuestion
-      );
+    
     }
     if (gameStatus === GameStatus.finished) {
 
@@ -305,7 +296,7 @@ const JoinGamePage: React.FC = () => {
     const participantDoc = await getDoc(participantRef);
 
     if (!participantDoc.exists()) {
-      console.log("No such participant!");
+      
       return;
     }
 

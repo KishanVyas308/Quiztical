@@ -1,4 +1,4 @@
-import React from "react";
+
 import {
   Container,
   Box,
@@ -66,7 +66,7 @@ const AboutUs = () => {
               Full Stack / Web3 Developer
             </Typography>
             <Typography variant="body2" color="grey.400" gutterBottom>
-              🌐 Blockchain Enthusiast (Solidity, Ethereum, Web2 Integration)
+              🌐 Web3 Enthusiast 
             </Typography>
             <StyledDivider />
             <Typography variant="body2" color="grey.400" gutterBottom>

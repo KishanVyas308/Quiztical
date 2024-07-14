@@ -32,7 +32,7 @@ const Completed = () => {
     <Container>
     <Typography variant="h4" margin={"20px 0px"} color={"white"}>Completed Quizzes</Typography>
     <Grid container spacing={2} marginTop={"20px"}>
-      {quizzes &&
+      {quizzes && 
         quizzes.map((quiz: any, index: number) => (
           <Grid item key={quiz.id} xs={12} sm={6} md={4} lg={3}>
             <Card
@@ -112,6 +112,14 @@ const Completed = () => {
             </Card>
           </Grid>
         ))}
+
+        {
+          quizzes === null &&
+          <Typography variant="h6" color={"gray"} padding={"20px"} component="div" gutterBottom>
+            No Completed Quizzes
+          </Typography>
+        }
+        
     </Grid>
   </Container>
   )

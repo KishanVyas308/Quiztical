@@ -39,7 +39,7 @@ const signUp = async (email: string, password: string, displayName: string) => {
     return userCredential.user;
   } catch (error: any) {
     toast.error("Something went wrong!");
-    console.log(error);
+    
     return null;
   }
 };
@@ -57,12 +57,12 @@ const signIn = async (email: string, password: string) => {
       return null;
     }
     toast.success("Loged in..!");
-    console.log(userCredential.user);
+   
 
     return userCredential.user;
   } catch (error: any) {
     toast.error("Something went wrong!");
-    console.log(error);
+    
     return null;
   }
 };
@@ -72,12 +72,12 @@ const signInWithGoogle = async () => {
     const result = await signInWithPopup(auth, googleProvider);
     const user = result.user;
     toast.success("Successfully signed in with Google!");
-    console.log(user);
+   
     findUserAndAddIfNotInUser(user);
     return user;
   } catch (error: any) {
     toast.error("Google sign-in failed!");
-    console.log(error);
+   
     return null;
   }
 };
@@ -111,7 +111,7 @@ const findUserAndAddIfNotInUser = async (user: any) => {
     // Since there's always one user, get the first document
     if (!querySnapshot.empty) {
       const userDoc = querySnapshot.docs[0];
-     console.log("userDoc data",userDoc.data())
+    
       return userDoc.data();
     } else {
       throw new Error("User not found");

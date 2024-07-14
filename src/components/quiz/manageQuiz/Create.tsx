@@ -189,7 +189,7 @@ const CreateQuiz: React.FC = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#121212", minHeight: "100vh", color: "#fff" }}>
+    <Box sx={{ backgroundColor: "#121212", minHeight: "100vh", color: "#fff", padding: "16px" }}>
       <Container
         maxWidth="lg"
         sx={{

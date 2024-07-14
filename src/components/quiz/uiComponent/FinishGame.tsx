@@ -25,7 +25,7 @@ const FinishGame = ({getSortedParticipants, user, isHost, quiz}: any) => {
       selectedParticipentId: string,
     ) => {
    
-      console.log(selectedParticipentId);
+    
       
       if (isHost) {
         setCurrentParticipent(

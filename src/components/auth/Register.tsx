@@ -9,7 +9,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useSetRecoilState } from "recoil";
 import userAtom from "../../atom/authAtom/userAtom";
 import { Link, useNavigate } from "react-router-dom";
-
+import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 const Register: React.FC = () => {
   const [displayName, setDisplayName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -18,7 +18,8 @@ const Register: React.FC = () => {
   const [emailError, setEmailError] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [submissionError, setSubmissionError] = useState<string>("");
-  const [randomQuote, setRandomQuote] = useState<string>("");
+  const [randomQuote, setRandomQuote] = useState<{ quote: string, author: string }>({ quote: "", author: "" });
+ 
   const setUser = useSetRecoilState(userAtom);
   const navigate = useNavigate();
 
@@ -28,17 +29,39 @@ const Register: React.FC = () => {
     "Life is what happens when you’re busy making other plans. - John Lennon",
     "Get busy living or get busy dying. - Stephen King",
     "You have within you right now, everything you need to deal with whatever the world can throw at you. - Brian Tracy",
+    "The unexamined life is not worth living. - Socrates",
+    "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. - Ralph Waldo Emerson",
+    "In the end, we will remember not the words of our enemies, but the silence of our friends. - Martin Luther King Jr.",
+    "The only true wisdom is in knowing you know nothing. - Socrates",
+    "What we achieve inwardly will change outer reality. - Plutarch",
+    "The mind is everything. What you think you become. - Buddha",
+    "He who has a why to live can bear almost any how. - Friedrich Nietzsche",
+    "We are what we repeatedly do. Excellence, then, is not an act, but a habit. - Aristotle",
+    "The journey of a thousand miles begins with one step. - Lao Tzu",
+    "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment. - Buddha",
+    "The privilege of a lifetime is to become who you truly are. - Carl Jung",
+    "The wound is the place where the Light enters you. - Rumi",
+    "The quieter you become, the more you are able to hear. - Rumi",
+    "Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it. - Rumi",
+    "Man suffers only because he takes seriously what the gods made for fun. - Alan Watts",
+    "We are not human beings having a spiritual experience. We are spiritual beings having a human experience. - Pierre Teilhard de Chardin",
+    "What lies behind us and what lies before us are tiny matters compared to what lies within us. - Ralph Waldo Emerson",
+    "Until you make the unconscious conscious, it will direct your life and you will call it fate. - Carl Jung",
+    "The meaning of life is to find your gift. The purpose of life is to give it away. - Pablo Picasso",
+    "Happiness is not something ready-made. It comes from your own actions. - Dalai Lama",
   ];
-
+  
   useEffect(() => {
-    if(randomQuote === "") {
+    if(randomQuote.quote === "") {
       
       handleGenerateQuote()
     }
   }, [])
 
   const handleGenerateQuote = () => {
-    setRandomQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    const [quote, author] = randomQuote.split(" - ");
+    setRandomQuote({ quote, author });
   };
 
   const validateEmail = (email: string) => {
@@ -75,7 +98,6 @@ const Register: React.FC = () => {
       const logedInUser = await signUp(email, password, displayName);
       if (logedInUser !== null) {
         setUser(logedInUser);
-        console.log(logedInUser);
         navigate("/");
       }
       setSubmissionError("");
@@ -89,7 +111,6 @@ const Register: React.FC = () => {
       const logedInUser = await signInWithGoogle();
       if (logedInUser !== null) {
         setUser(logedInUser);
-        console.log(logedInUser);
         navigate("/");
       }
       setSubmissionError("");
@@ -268,7 +289,7 @@ const Register: React.FC = () => {
            
             padding: "30px",
             minHeight: "70vh",
-            maxWidth: "450px",
+            maxWidth: "500px",
             display: {xs: "none", md: "flex"},
             margin: '20px',
             flexDirection: "column",
@@ -277,8 +298,11 @@ const Register: React.FC = () => {
            
           }}
         >
-          <Typography variant="h6" align="center" style={{ color: "#fff", fontStyle: 'italic' }}>
-            {randomQuote}
+          <Typography variant="h5" component={"p"} align="center" style={{ fontFamily: 'cursive', color: "#fff", fontStyle: 'italic' }}>
+            <FaQuoteLeft style={{color: "#ccc"}}/>{randomQuote.quote} <FaQuoteRight style={{color: "#ccc"}}/>
+          </Typography>
+          <Typography variant="h6" component={"p"} align="center" style={{ fontFamily: 'serif', color: "#ccc", marginTop: '10px' }}>
+            - {randomQuote.author}
           </Typography>
         </Box>
       </div>

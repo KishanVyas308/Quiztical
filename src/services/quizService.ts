@@ -36,7 +36,7 @@ const saveNewQuize = async (quiz: any) => {
 
     toast.success("Quiz saved successfully");
   } catch (error) {
-    console.log(error);
+    
     toast.error("Failed to save quiz");
   }
 };
@@ -52,10 +52,10 @@ const fetchUserQuizzes = async (user: any) => {
     querySnapshot.forEach((doc) => {
       userQuizzes.push({ id: doc.id, ...doc.data() });
     });
-    console.log(userQuizzes);
+    
     return userQuizzes;
   } catch (error) {
-    console.log("Error fetching quizzes: ", error);
+   
     return null;
   }
 };
@@ -69,7 +69,7 @@ const hostQuiz = async (quizId: string, hostId: string) => {
     status: "waiting", // 'waiting', 'coundown' ,'started', 'leaderboard , 'finished'
     curQuestionNumber: 0,
   };
-  console.log(activeQuizData);
+ 
 
   const activeQuizRef = await addDoc(
     collection(db, "activeQuizzes"),
@@ -131,9 +131,8 @@ const removeUser = async (activeQuizId: string, participant: Participant) => {
       participant.id
     );
     await deleteDoc(participantRef);
-    console.log(`Participant ${participant.displayName} removed successfully.`);
-  } catch (error) {
-    console.error("Error removing participant: ", error);
+   } catch (error) {
+    
   }
 };
 
@@ -158,9 +157,9 @@ const addQuizCompletedToUser = async (
 
 const fetchCompletedQuizes = async (user: any) => {
   try {
-    console.log(user);
+  
     if (user.completed.length === 0) {
-      console.log("no completed quizes");
+     
       
       return []; // Return an empty array if there are no completed quizzes
     }
@@ -181,10 +180,10 @@ const fetchCompletedQuizes = async (user: any) => {
       ...doc.data(),
     }));
 
-    console.log("Completed quizzes:", userQuizzes);
+   
     return userQuizzes;
   } catch (error) {
-    console.log("Error fetching quizzes: ", error);
+   
     return null;
   }
 };
@@ -193,11 +192,11 @@ const fetchCurrentActiveQuizeQuestions = async (quizId: string) => {
   try {
     const quizDoc = await getDoc(doc(db, "quizzes", quizId));
 
-    console.log(quizDoc.data());
+    
     return quizDoc.data();
   } catch (error) {
-    console.log("Error fetching quizzes: ", error);
-    throw new Error("Quiz not found");
+    
+    
   }
 };
 
@@ -213,7 +212,7 @@ const fetchAllParticipantFromCurretQuiz = async (activeQuizId: string) => {
       participants.push(doc.data() as Participant);
     });
 
-    console.log(participants);
+    
 
     return participants;
   } catch (error) {
