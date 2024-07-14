@@ -3,7 +3,7 @@
 Welcome to **Quiztical**—your ultimate destination for creating, hosting, and participating in exciting and competitive quizzes! Built with cutting-edge web technologies, Quiztical transforms the traditional quiz experience into an interactive and thrilling adventure.
 
 
-[quiztical.pages.dev](https://quiztical.pages.dev)
+## [quiztical.pages.dev](https://quiztical.pages.dev)
 
 
 ## Table of Contents
