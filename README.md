@@ -45,7 +45,7 @@ Welcome to **Quiztical**—your ultimate destination for creating, hosting, and 
 - **Frontend:** React, Material-UI (MUI)
 - **State Management:** Recoil
 - **Backend and Authentication:** Firebase
-- **Deployment:** GitHub, quiztical.pages.dev
+- **Deployment:** Cloudflare, quiztical.pages.dev
 - **Language:** TypeScript
 
 ## Installation
