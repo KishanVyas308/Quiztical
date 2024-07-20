@@ -142,26 +142,7 @@ const JoinGamePage: React.FC = () => {
     return () => unsubscribe();
   }, [activeQuizId, user.uid, quiz]);
 
-  useEffect(() => {
-    const activeQuizRef = doc(db, "activeQuizzes", activeQuizId!);
-    const participantRef = collection(activeQuizRef, "participants");
 
-    const unsubscribe = onSnapshot(participantRef, (querySnapshot) => {
-      if (gameStatus === GameStatus.waiting) {
-        const participantsData: any = [];
-        querySnapshot.forEach((doc) => {
-          participantsData.push(doc.data() as any);
-        });
-        if (!isEqual(participants, participantsData)) {
-          
-
-          setParticipants(participantsData);
-        }
-      }
-    });
-
-    return () => unsubscribe();
-  }, [participants]);
 
   const handleRemoveUser = async (participant: any) => {
     await removeUser(activeQuizId!, participant);
